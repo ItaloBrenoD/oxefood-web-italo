@@ -12,13 +12,15 @@ import FormFornecedor from './views/fornecedor/FormFornecedor';
 import ListFornecedor from './views/fornecedor/ListFornecedor';
 import FormFabricante from './views/fabricante/FormFabricante';
 import ListFabricante from './views/fabricante/ListFabricante';
+import FormLogin from './views/login/FormLogin';
+import { ProtectedRoute } from './views/util/ProtectedRoute';
 
 function Rotas() {
     return (
         <>
             <Routes>
 
-                <Route path="/" element={<FormLogin />} />
+                <Route path="/" element={<FormLogin/>} />
 
                 <Route
                     path="/home"
@@ -60,7 +62,7 @@ function Rotas() {
                     path="/form-produto"
                     element={
                         <ProtectedRoute>
-                            <FormProduto />
+                            <FormProduct />
                         </ProtectedRoute>
                     }
                 />
@@ -68,7 +70,10 @@ function Rotas() {
                     <ProtectedRoute>
                         <ListEntregador />
                     </ProtectedRoute> } />
-                <Route path="form-entregador" element={<ProtectedRoute><FormEntregador /></ProtectedRoute>} />
+
+                <Route path="form-entregador" element={<ProtectedRoute>
+                    <FormEntregador />
+                    </ProtectedRoute>} />
                 <Route path="form-fornecedor" element={ <ProtectedRoute><FormFornecedor /></ProtectedRoute>} />
                 <Route path="list-fornecedor" element={ <ProtectedRoute><ListFornecedor /></ProtectedRoute>} />
                 <Route path='form-fabricante' element={ <ProtectedRoute><FormFabricante /></ProtectedRoute>} />
