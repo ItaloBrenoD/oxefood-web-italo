@@ -17,17 +17,62 @@ function Rotas() {
     return (
         <>
             <Routes>
-                <Route path="/" element={ <Home/> } />
-                <Route path="list-cliente" element={ <ListCliente/> } />
-                <Route path="list-produto" element={ <ListProduto/> } />
-                <Route path="list-entregador" element={ <ListEntregador/> } />
-                <Route path="form-cliente" element={ <FormCliente/> } />
-                <Route path="form-produto" element={ <FormProduct/> } />
-                <Route path="form-entregador" element={ <FormEntregador/> } />
-                <Route path="form-fornecedor" element={ <FormFornecedor/> } />
-                <Route path="list-fornecedor" element={ <ListFornecedor /> }/>
-                <Route path='form-fabricante' element={<FormFabricante />} />
-                <Route path='list-fabricante' element={<ListFabricante />} />
+
+                <Route path="/" element={<FormLogin />} />
+
+                <Route
+                    path="/home"
+                    element={
+                        <ProtectedRoute>
+                            <Home />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/list-cliente"
+                    element={
+                        <ProtectedRoute>
+                            <ListCliente />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/form-cliente"
+                    element={
+                        <ProtectedRoute>
+                            <FormCliente />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/list-produto"
+                    element={
+                        <ProtectedRoute>
+                            <ListProduto />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/form-produto"
+                    element={
+                        <ProtectedRoute>
+                            <FormProduto />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route path="list-entregador" element={
+                    <ProtectedRoute>
+                        <ListEntregador />
+                    </ProtectedRoute> } />
+                <Route path="form-entregador" element={<ProtectedRoute><FormEntregador /></ProtectedRoute>} />
+                <Route path="form-fornecedor" element={ <ProtectedRoute><FormFornecedor /></ProtectedRoute>} />
+                <Route path="list-fornecedor" element={ <ProtectedRoute><ListFornecedor /></ProtectedRoute>} />
+                <Route path='form-fabricante' element={ <ProtectedRoute><FormFabricante /></ProtectedRoute>} />
+                <Route path='list-fabricante' element={ <ProtectedRoute><ListFabricante /></ProtectedRoute>} />
             </Routes>
         </>
     )
